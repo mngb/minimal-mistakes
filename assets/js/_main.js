@@ -181,14 +181,14 @@ $(document).ready(function () {
     var thisButton = event.target;
 
     // Locate the <code> element
-    var codeBlock = thisButton.nextElementSibling;
-    while (codeBlock && codeBlock.tagName.toLowerCase() !== "code") {
+    var codeBlock = thisButton.parentElement;
+    while (codeBlock && codeBlock.tagName.toLowerCase() !== "pre") {
       codeBlock = codeBlock.nextElementSibling;
     }
     if (!codeBlock) {
       // No <code> found - wtf?
       console.warn(thisButton);
-      throw new Error("No code block found for this button.");
+        throw new Error("No <pre> block found for this button.");
     }
 
     // Skip line numbers if present (i.e. {% highlight lineno %})
@@ -196,7 +196,11 @@ $(document).ready(function () {
     if (realCodeBlock) {
       codeBlock = realCodeBlock;
     }
-    var result = copyText(codeBlock.innerText);
+
+      var copyBtn = codeBlock.firstElementChild;
+      codeBlock.removeChild(copyBtn);
+      var result = copyText(codeBlock.innerText);
+      codeBlock.prepend(copyBtn);
     // Restore the focus to the button
     thisButton.focus();
     if (result) {
@@ -215,14 +219,14 @@ $(document).ready(function () {
 
   if (window.enable_copy_code_button) {
     document
-      .querySelectorAll(".page__content pre.highlight > code")
+      .querySelectorAll("#content div.org-src-container pre.src")
       .forEach(function (element, index, parentList) {
         // Locate the <pre> element
-        var container = element.parentElement;
+        var container = element;
         // Sanity check - don't add an extra button if there's already one
-        if (container.firstElementChild.tagName.toLowerCase() !== "code") {
-          return;
-        }
+        // if (container.firstElementChild.tagName.toLowerCase() !== "code") {
+        //   return;
+          // }
         var copyButton = document.createElement("button");
         copyButton.title = "Copy to clipboard";
         copyButton.className = "clipboard-copy-button";

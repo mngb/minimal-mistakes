@@ -18,6 +18,11 @@
   {%- endcase -%}
 {% endif %}
 
+
+{% if page.content contains "org-src-container" and site.enable_copy_code_button == true %}
+    <script src="{{ '/assets/js/custom/copy-to-clipboard.js' | relative_url }}"></script>
+{% endif %}
+
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}
 
