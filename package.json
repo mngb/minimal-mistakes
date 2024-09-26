@@ -1,27 +1,27 @@
 {
   "name": "minimal-mistakes",
-  "private": true,
   "version": "4.26.2",
-  "description": "Minimal Mistakes 2 column Jekyll theme.",
+  "author": "Michael Rose",
   "repository": {
     "type": "git",
     "url": "https://github.com/mmistakes/minimal-mistakes.git"
   },
+  "devDependencies": {
+    "uglify-js": "^3.17.4"
+  },
+  "bugs": {
+    "url": "https://github.com/mmistakes/minimal-mistakes/issues"
+  },
+  "description": "Minimal Mistakes 2 column Jekyll theme.",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "homepage": "https://mmistakes.github.io/minimal-mistakes/",
   "keywords": [
     "jekyll",
     "theme",
     "minimal"
   ],
-  "author": "Michael Rose",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mmistakes/minimal-mistakes/issues"
-  },
-  "homepage": "https://mmistakes.github.io/minimal-mistakes/",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
-  "devDependencies": {
-    "uglify-js": "^3.17.4"
-  }
+  "private": true
 }
