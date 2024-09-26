@@ -1,0 +1,4 @@
+# -*- coding: utf-8; -*-
+
+Fork 项目，用于适配 Emacs 从 org 文件导出的 html，
+在 Jekyll blog 站点中使用。
